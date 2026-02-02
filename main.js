@@ -70,30 +70,32 @@ const GAMES = [
 ];
 
 const WORKS = [
-    { id: 1, title: "Dragon Creature",   cat: "Character",   desc: "High-poly PBR character with full rigging",        tools: ["Blender", "Substance"], poly: "45K",  color: "#7c6aff", img: "" },
-    { id: 2, title: "Ancient Temple",    cat: "Environment", desc: "Modular env set with multi-LOD support",           tools: ["Maya", "Unreal"],       poly: "120K", color: "#d96898", img: "" },
-    { id: 3, title: "Slot Symbol Pack",  cat: "Props",       desc: "Animated 3D symbols optimised for slots",         tools: ["Blender", "Pixi.js"],   poly: "8K",   color: "#2dd4bf", img: "" },
-    { id: 4, title: "Cyberpunk City",    cat: "Environment", desc: "Noir urban landscape, dynamic lighting",          tools: ["Blender", "HDRI"],      poly: "200K", color: "#f97316", img: "" },
-    { id: 5, title: "Treasure Chest",    cat: "Props",       desc: "Interactive chest with particle burst fx",        tools: ["Three.js", "Blender"],  poly: "12K",  color: "#60a5fa", img: "" },
-    { id: 6, title: "Alien Creature",    cat: "Character",   desc: "Sci-fi creature, fully rigged & animated",        tools: ["Maya", "ZBrush"],       poly: "68K",  color: "#34d399", img: "" }
+    { id: 1, title: "Dragon Creature", cat: "Character", desc: "High-poly PBR character with full rigging", tools: ["Blender", "Substance"], poly: "45K", color: "#7c6aff", img: "" },
+    { id: 2, title: "Ancient Temple", cat: "Environment", desc: "Modular env set with multi-LOD support", tools: ["Maya", "Unreal"], poly: "120K", color: "#d96898", img: "" },
+    { id: 3, title: "Slot Symbol Pack", cat: "Props", desc: "Animated 3D symbols optimised for slots", tools: ["Blender", "Pixi.js"], poly: "8K", color: "#2dd4bf", img: "" },
+    { id: 4, title: "Cyberpunk City", cat: "Environment", desc: "Noir urban landscape, dynamic lighting", tools: ["Blender", "HDRI"], poly: "200K", color: "#f97316", img: "" },
+    { id: 5, title: "Treasure Chest", cat: "Props", desc: "Interactive chest with particle burst fx", tools: ["Three.js", "Blender"], poly: "12K", color: "#60a5fa", img: "" },
+    { id: 6, title: "Alien Creature", cat: "Character", desc: "Sci-fi creature, fully rigged & animated", tools: ["Maya", "ZBrush"], poly: "68K", color: "#34d399", img: "" }
 ];
 // ↑ set `img` to a path like "assets/images/dragon.jpg" to replace the placeholder icon
 
 const SHADERS = [
-    { id: 1, title: "Neon Glow",       cat: "Symbol", desc: "Bloom-based neon glow for slot symbols",       color: "#00c8d4", shape: "◆", demo: "#" },
-    { id: 2, title: "Fire Burst",      cat: "Win",    desc: "Explosive fire particles on jackpot",          color: "#ff6b35", shape: "✦", demo: "#" },
-    { id: 3, title: "Diamond Shimmer", cat: "Symbol", desc: "Realistic diamond refraction shader",          color: "#a855f7", shape: "◇", demo: "#" },
-    { id: 4, title: "Water Ripple",    cat: "BG",     desc: "Animated caustic water surface",               color: "#06b6d4", shape: "〰", demo: "#" },
-    { id: 5, title: "Star Field",      cat: "BG",     desc: "Parallax star field with nebula clouds",       color: "#7c3aed", shape: "✧", demo: "#" },
-    { id: 6, title: "Lightning",       cat: "Win",    desc: "Dynamic strike effect for big wins",          color: "#facc15", shape: "⟡", demo: "#" }
+    { id: 1, title: "Neon Glow", cat: "Symbol", desc: "Bloom-based neon glow for slot symbols", color: "#00c8d4", shape: "◆", demo: "#" },
+    { id: 2, title: "Fire Burst", cat: "Win", desc: "Explosive fire particles on jackpot", color: "#ff6b35", shape: "✦", demo: "#" },
+    { id: 3, title: "Diamond Shimmer", cat: "Symbol", desc: "Realistic diamond refraction shader", color: "#a855f7", shape: "◇", demo: "#" },
+    { id: 4, title: "Water Ripple", cat: "BG", desc: "Animated caustic water surface", color: "#06b6d4", shape: "〰", demo: "#" },
+    { id: 5, title: "Star Field", cat: "BG", desc: "Parallax star field with nebula clouds", color: "#7c3aed", shape: "✧", demo: "#" },
+    { id: 6, title: "Lightning", cat: "Win", desc: "Dynamic strike effect for big wins", color: "#facc15", shape: "⟡", demo: "#" }
 ];
 // ↑ set `demo` to a URL or an in-page anchor where the live shader demo lives
 
-const SIMULATORS = [
-    { name: "Poker",         desc: "Classic Texas Hold'em RTP simulation",        icon: "♠️", link: "simulators/poker.html" },
-    { name: "Facade Poker",  desc: "Three-card poker variant with side bets",     icon: "🃏", link: "simulators/facade-poker.html" },
-    { name: "Slot Game",     desc: "Multi-line slot machine RTP calculator",      icon: "🎰", link: "simulators/slot.html" },
-    { name: "Keno",          desc: "Number-selection lottery style game",         icon: "🎱", link: "simulators/keno.html" }
+const TECHS = [
+    { name: "Pixi.js", desc: "2D WebGL Renderer", icon: "🎮", note: "Game Engine" },
+    { name: "Go", desc: "RTP Calculation Engine", icon: "🐹", note: "Backend" },
+    { name: "WebGL / GLSL", desc: "GPU Shader Programs", icon: "🌐", note: "Graphics" },
+    { name: "Three.js", desc: "3D Model Preview", icon: "📦", note: "3D Viewer" },
+    { name: "Blender", desc: "3D Modeling & Rigging", icon: "🎨", note: "Assets" },
+    { name: "WebSocket", desc: "Real-time Communication", icon: "⚡", note: "Networking" }
 ];
 
 /* ═══════════════════════════════════════════════════════════
@@ -111,9 +113,9 @@ function createFilterBar(containerId, items, accentColor, onFilter) {
 
         container.querySelectorAll('.filter-btn').forEach(btn => {
             const isActive = btn.dataset.filter === active;
-            btn.style.background    = isActive ? accentColor          : 'rgba(255,255,255,0.06)';
-            btn.style.color         = isActive ? '#0a0a12'            : '#7a7a8a';
-            btn.style.borderColor   = isActive ? accentColor          : 'transparent';
+            btn.style.background = isActive ? accentColor : 'rgba(255,255,255,0.06)';
+            btn.style.color = isActive ? '#0a0a12' : '#7a7a8a';
+            btn.style.borderColor = isActive ? accentColor : 'transparent';
 
             btn.addEventListener('click', () => {
                 active = btn.dataset.filter;
@@ -285,16 +287,16 @@ function renderShadersSection() {
    TECH STACK SECTION
    ═══════════════════════════════════════════════════════════ */
 
-function renderSimulatorsSection() {
-    document.getElementById('simulator-grid').innerHTML = SIMULATORS.map(s => `
-    <a href="${s.link}" class="simulator-card reveal">
-        <span class="simulator-card__icon">${s.icon}</span>
-        <div class="simulator-card__info">
-            <h3 class="simulator-card__name">${s.name}</h3>
-            <p class="simulator-card__desc">${s.desc}</p>
+function renderTechSection() {
+    document.getElementById('tech-grid').innerHTML = TECHS.map(t => `
+    <div class="tech-card reveal">
+        <span class="tech-card__icon">${t.icon}</span>
+        <div class="tech-card__info">
+            <h3 class="tech-card__name">${t.name}</h3>
+            <p class="tech-card__desc">${t.desc}</p>
         </div>
-        <span class="simulator-card__arrow"><i class="fas fa-arrow-right"></i></span>
-    </a>`).join('');
+        <span class="tech-card__note">${t.note}</span>
+    </div>`).join('');
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -316,11 +318,11 @@ function initCardHovers() {
         const c = card.dataset.color;
         card.addEventListener('mouseenter', () => {
             card.style.borderColor = c + '38';
-            card.style.transform   = 'translateY(-3px)';
+            card.style.transform = 'translateY(-3px)';
         });
         card.addEventListener('mouseleave', () => {
             card.style.borderColor = 'rgba(255,255,255,0.06)';
-            card.style.transform   = 'translateY(0)';
+            card.style.transform = 'translateY(0)';
         });
     });
 
@@ -329,11 +331,11 @@ function initCardHovers() {
         const c = btn.dataset.color;
         btn.addEventListener('mouseenter', () => {
             btn.style.borderColor = c;
-            btn.style.color       = c;
+            btn.style.color = c;
         });
         btn.addEventListener('mouseleave', () => {
             btn.style.borderColor = 'rgba(255,255,255,0.08)';
-            btn.style.color       = '#5a5a6a';
+            btn.style.color = '#5a5a6a';
         });
     });
 }
@@ -350,7 +352,7 @@ function initScrollReveal() {
 
             // Calculate sibling index for stagger
             const siblings = Array.from(entry.target.parentElement.children);
-            const index    = siblings.indexOf(entry.target);
+            const index = siblings.indexOf(entry.target);
             entry.target.style.transitionDelay = `${index * 0.08}s`;
             entry.target.classList.add('visible');
             revealObserver.unobserve(entry.target);
@@ -371,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGamesSection();
     render3DWorksSection();
     renderShadersSection();
-    renderSimulatorsSection();
+    renderTechSection();
     initCardHovers();
     initScrollReveal();
 });
