@@ -89,13 +89,11 @@ const SHADERS = [
 ];
 // ↑ set `demo` to a URL or an in-page anchor where the live shader demo lives
 
-const TECHS = [
-    { name: "Pixi.js", desc: "2D WebGL Renderer", icon: "🎮", note: "Game Engine" },
-    { name: "Go", desc: "RTP Calculation Engine", icon: "🐹", note: "Backend" },
-    { name: "WebGL / GLSL", desc: "GPU Shader Programs", icon: "🌐", note: "Graphics" },
-    { name: "Three.js", desc: "3D Model Preview", icon: "📦", note: "3D Viewer" },
-    { name: "Blender", desc: "3D Modeling & Rigging", icon: "🎨", note: "Assets" },
-    { name: "WebSocket", desc: "Real-time Communication", icon: "⚡", note: "Networking" }
+const SIMULATORS = [
+    { name: "Poker", desc: "Classic Texas Hold'em RTP simulation", icon: "♠️", link: "simulators/poker.html" },
+    { name: "Facade Poker", desc: "Three-card poker variant with side bets", icon: "🃏", link: "simulators/facade-poker.html" },
+    { name: "Slot Game", desc: "Multi-line slot machine RTP calculator", icon: "🎰", link: "simulators/slot.html" },
+    { name: "Keno", desc: "Number-selection lottery style game", icon: "🎱", link: "simulators/keno.html" }
 ];
 
 /* ═══════════════════════════════════════════════════════════
