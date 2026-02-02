@@ -914,3 +914,113 @@ a {
     .hero-subtitle   { font-size: 18px; }
     .hero-corner     { display: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   SIMULATOR CARDS (replaces tech cards)
+   ═══════════════════════════════════════════════════════════ */
+
+.simulator-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.simulator-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.simulator-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4),
+                0 0 20px rgba(201,168,76,0.15);
+}
+
+.simulator-card:hover::before {
+    opacity: 1;
+}
+
+.simulator-card__icon { 
+    font-size: 32px; 
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+.simulator-card:hover .simulator-card__icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.simulator-card__info { 
+    flex: 1;
+    z-index: 1;
+}
+
+.simulator-card__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-1);
+    margin-bottom: 4px;
+    transition: color 0.2s;
+}
+
+.simulator-card:hover .simulator-card__name {
+    color: var(--gold);
+}
+
+.simulator-card__desc {
+    font-size: 12px;
+    color: var(--text-3);
+    line-height: 1.5;
+}
+
+.simulator-card__arrow {
+    color: var(--text-4);
+    font-size: 18px;
+    transition: all 0.3s;
+    z-index: 1;
+}
+
+.simulator-card:hover .simulator-card__arrow {
+    color: var(--gold);
+    transform: translateX(6px);
+}
+
+/* Grid adjustment for 2 columns */
+.card-grid--2col { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .card-grid--2col { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .simulator-card {
+        padding: 18px 20px;
+    }
+    
+    .simulator-card__icon {
+        font-size: 28px;
+    }
+    
+    .simulator-card__name {
+        font-size: 16px;
+    }
+}

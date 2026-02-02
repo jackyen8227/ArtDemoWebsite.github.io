@@ -89,13 +89,11 @@ const SHADERS = [
 ];
 // ↑ set `demo` to a URL or an in-page anchor where the live shader demo lives
 
-const TECHS = [
-    { name: "Pixi.js",      desc: "2D WebGL Renderer",          icon: "🎮", note: "Game Engine" },
-    { name: "Go",           desc: "RTP Calculation Engine",     icon: "🐹", note: "Backend" },
-    { name: "WebGL / GLSL", desc: "GPU Shader Programs",        icon: "🌐", note: "Graphics" },
-    { name: "Three.js",     desc: "3D Model Preview",           icon: "📦", note: "3D Viewer" },
-    { name: "Blender",      desc: "3D Modeling & Rigging",      icon: "🎨", note: "Assets" },
-    { name: "WebSocket",    desc: "Real-time Communication",    icon: "⚡", note: "Networking" }
+const SIMULATORS = [
+    { name: "Poker",         desc: "Classic Texas Hold'em RTP simulation",        icon: "♠️", link: "simulators/poker.html" },
+    { name: "Facade Poker",  desc: "Three-card poker variant with side bets",     icon: "🃏", link: "simulators/facade-poker.html" },
+    { name: "Slot Game",     desc: "Multi-line slot machine RTP calculator",      icon: "🎰", link: "simulators/slot.html" },
+    { name: "Keno",          desc: "Number-selection lottery style game",         icon: "🎱", link: "simulators/keno.html" }
 ];
 
 /* ═══════════════════════════════════════════════════════════
@@ -287,16 +285,16 @@ function renderShadersSection() {
    TECH STACK SECTION
    ═══════════════════════════════════════════════════════════ */
 
-function renderTechSection() {
-    document.getElementById('tech-grid').innerHTML = TECHS.map(t => `
-    <div class="tech-card reveal">
-        <span class="tech-card__icon">${t.icon}</span>
-        <div class="tech-card__info">
-            <h3 class="tech-card__name">${t.name}</h3>
-            <p class="tech-card__desc">${t.desc}</p>
+function renderSimulatorsSection() {
+    document.getElementById('simulator-grid').innerHTML = SIMULATORS.map(s => `
+    <a href="${s.link}" class="simulator-card reveal">
+        <span class="simulator-card__icon">${s.icon}</span>
+        <div class="simulator-card__info">
+            <h3 class="simulator-card__name">${s.name}</h3>
+            <p class="simulator-card__desc">${s.desc}</p>
         </div>
-        <span class="tech-card__note">${t.note}</span>
-    </div>`).join('');
+        <span class="simulator-card__arrow"><i class="fas fa-arrow-right"></i></span>
+    </a>`).join('');
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -373,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGamesSection();
     render3DWorksSection();
     renderShadersSection();
-    renderTechSection();
+    renderSimulatorsSection();
     initCardHovers();
     initScrollReveal();
 });

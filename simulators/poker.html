@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker RTP Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background: #080810;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #c9a84c;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin-top: 60px;
+        }
+        
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 48px;
+            background: linear-gradient(135deg, #c9a84c 0%, #e8a030 50%, #c9a84c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #5a5a6a;
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+        
+        .simulator-box {
+            background: #0e0e1a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+        
+        .message {
+            font-size: 18px;
+            color: #7a7a8a;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        
+        .coming-soon {
+            display: inline-block;
+            padding: 12px 32px;
+            background: rgba(201,168,76,0.1);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 8px;
+            color: #c9a84c;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .features {
+            margin-top: 48px;
+            text-align: left;
+        }
+        
+        .features h3 {
+            font-family: 'Rajdhani', sans-serif;
+            color: #c9a84c;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            padding: 12px 0;
+            color: #7a7a8a;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .features li:before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="container">
+        <h1>♠️ Poker RTP Simulator</h1>
+        <p class="subtitle">Classic Texas Hold'em Return-to-Player Analysis</p>
+        
+        <div class="simulator-box">
+            <div class="icon">♠️♥️♦️♣️</div>
+            <p class="message">
+                Interactive poker RTP simulator is currently under development.<br>
+                This tool will calculate theoretical returns for various Texas Hold'em scenarios.
+            </p>
+            <span class="coming-soon">Coming Soon</span>
+        </div>
+        
+        <div class="features">
+            <h3>Planned Features</h3>
+            <ul>
+                <li>Real-time hand probability calculations</li>
+                <li>Multi-player scenario simulations</li>
+                <li>Historical hand analysis</li>
+                <li>Pot odds calculator</li>
+                <li>Expected value (EV) computation</li>
+                <li>Range vs. range equity</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
