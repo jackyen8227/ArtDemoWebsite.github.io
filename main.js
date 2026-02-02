@@ -282,19 +282,19 @@ function renderShadersSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   TECH STACK SECTION
+   RTP SIMULATORS SECTION
    ═══════════════════════════════════════════════════════════ */
 
-function renderTechSection() {
-    document.getElementById('tech-grid').innerHTML = TECHS.map(t => `
-    <div class="tech-card reveal">
-        <span class="tech-card__icon">${t.icon}</span>
-        <div class="tech-card__info">
-            <h3 class="tech-card__name">${t.name}</h3>
-            <p class="tech-card__desc">${t.desc}</p>
+function renderSimulatorsSection() {
+    document.getElementById('simulator-grid').innerHTML = SIMULATORS.map(s => `
+    <a href="${s.link}" class="simulator-card reveal">
+        <span class="simulator-card__icon">${s.icon}</span>
+        <div class="simulator-card__info">
+            <h3 class="simulator-card__name">${s.name}</h3>
+            <p class="simulator-card__desc">${s.desc}</p>
         </div>
-        <span class="tech-card__note">${t.note}</span>
-    </div>`).join('');
+        <span class="simulator-card__arrow"><i class="fas fa-arrow-right"></i></span>
+    </a>`).join('');
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGamesSection();
     render3DWorksSection();
     renderShadersSection();
-    renderTechSection();
+    renderSimulatorsSection();
     initCardHovers();
     initScrollReveal();
 });
